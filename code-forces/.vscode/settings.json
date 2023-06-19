@@ -1,8 +1,10 @@
 {
-    "files.associations": {
-        "iostream": "cpp",
-        "cmath": "cpp"
-    },
-    "cph.general.onceMaintainerMessage": false,
-    "C_Cpp.errorSquiggles": "disabled"
+  "files.associations": {
+    "iostream": "cpp",
+    "cmath": "cpp",
+    "random": "cpp",
+    "ostream": "cpp"
+  },
+  "cph.general.onceMaintainerMessage": false,
+  "C_Cpp.errorSquiggles": "disabled"
 }
