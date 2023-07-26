@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -11,33 +12,26 @@ int main()
     {
         int n, m, k, h;
         cin >> n >> m >> k >> h;
+
         map<int, int> mp;
-        for (int i = 1; i <= m; i++)
+        for (int i = 1; i < m; i++)
         {
-            int pos = i * k + h;
-            mp[pos] = 1;
-            cout << "vlad " << pos << endl;
+            mp[i * k] = 1;
         }
+
+        // for (auto val : mp)
+        // {
+        //     cout << val.first << " " << val.second << endl;
+        // }
 
         int cnt = 0;
         for (int i = 0; i < n; i++)
         {
             int x;
             cin >> x;
-            // cout << i << " " << x - h << endl;
-
-            // if (i != n - 1 && x != h && (x - h) % k == 0)
-            // {
-            //     cnt++;
-            // }
-            for (int j = 1; j <= m; j++)
+            if (mp[abs(h - x)])
             {
-                int pos = j * k + x;
-                if (mp[pos])
-                {
-                    cout << "got " << pos << endl;
-                    cnt++;
-                }
+                cnt++;
             }
         }
         cout << cnt << endl;
