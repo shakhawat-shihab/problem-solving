@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 
-int getGcd(int a, int b)
+ll getGcd(ll a, ll b)
 {
     if (b == 0)
         return a;
@@ -17,7 +17,7 @@ int main()
     cin >> t;
     for (int Case = 1; Case <= t; Case++)
     {
-        int a, b, c, d;
+        ll a, b, c, d;
         cin >> a >> b >> c >> d;
         if ((a + 1) % b == (c + 1) % d)
         {
@@ -25,10 +25,8 @@ int main()
         }
         else
         {
-            ll ans = a - (a % b);
-            int lcm = (b * d) / getGcd(b, d);
-            ans += lcm;
-            cout << ans - a << endl;
+            ll lcm = (b * d) / getGcd(b, d);
+            cout << lcm - (a % b) << endl;
         }
     }
     return 0;
