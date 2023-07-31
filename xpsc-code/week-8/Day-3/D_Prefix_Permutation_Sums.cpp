@@ -36,18 +36,18 @@ int main()
                 if (diff > n)
                 {
                     f = 0;
-                    cout << "NO" << endl;
-                    break;
+                    // cout << "NO" << endl;
+                    // break;
                 }
                 if (mp[diff])
                 {
                     f = 0;
-                    cout << "NO" << endl;
-                    break;
+                    // cout << "NO" << endl;
+                    // break;
                 }
                 mp[diff]++;
             }
-            if (sum == dup || sum == 0)
+            if (f)
             {
                 cout << "YES" << endl;
             }
@@ -58,38 +58,49 @@ int main()
         }
         else if (arr[n - 1] > sm)
         {
-        }
-
-        int dup = 0;
-        int mx = 0;
-        for (int i = n - 1; i > 0; i--)
-        {
-            int diff = arr[i] - arr[i - 1];
-            if (mp[diff])
-                dup = diff;
-            if (diff > n)
+            map<int, int> mp;
+            int f = 1;
+            for (int i = n - 1; i > 0; i--)
             {
-                mx = diff;
+                int diff = arr[i] - arr[i - 1];
+                mp[diff]++;
             }
-            mp[diff]++;
-        }
-
-        ll sum = 0;
-        for (int i = 1; i <= n; i++)
-        {
-            if (mp[i] == 0)
+            ll sum = 0;
+            for (int i = 1; i <= n; i++)
             {
-                sum += i;
+                if (mp[i] == 0)
+                {
+                    sum += i;
+                }
             }
-        }
+            for (auto val : mp)
+            {
+                if (val.first > n)
+                {
+                    if (sum != val.first)
+                    {
+                        f = 0;
+                        break;
+                    }
+                }
+                else if (val.second == 2)
+                {
+                    if (sum != val.first)
+                    {
+                        f = 0;
+                        break;
+                    }
+                }
+            }
 
-        if (sum == dup || sum == 0)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
+            if (f)
+            {
+                cout << "YES" << endl;
+            }
+            else
+            {
+                cout << "NO" << endl;
+            }
         }
     }
     return 0;
